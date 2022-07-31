@@ -3,9 +3,11 @@ const jogador1 = "X";
 const jogador2 = "O";
 let turno = true;
 
-document.addEventListener("click", (event) => {
+document.addEventListener("click", (event) => { 
+    
     if(event.target.matches(".tabuleiro")){
         jogar(event.target.id);
+        
     }
     
 })
@@ -36,15 +38,21 @@ function jogar(id){
         turno = true;
     }
     area.textContent = turnoDe;
+    
     area.classList.add(turnoDe);
-    venceu(!turno);
+    document.getElementById(id).disabled = true;
+    venceu(!turnoDe);
 }
 
-function venceu(turno){
-    const verVencedor = possibilidades.some((comb) => {
-        return comb.every((index) => {
-            return tabuleiro1[index].classList.contains(vez)
-        })
-    });
-    
+/*function venceu(turno){
+    for(let i = 0; i < possibilidades.length(); i++){
+        if(possibilidades[i] == 0 )
+    }
+    return true;
 }
+
+function fimDeJogo(){
+    alert("FIM DE JOGO");
+}
+
+*/
