@@ -1,0 +1,25 @@
+.container{
+    margin: 0 auto;
+    max-width: 480px;
+    border-radius: 3px;
+    border: solid black;
+
+}
+.cabecalho{
+    margin-top: 10px;
+    text-align: center;
+
+    
+}
+
+.tabuleiro{
+    width: 155px;
+    height: 155px;
+    font-size: 50;
+    margin: 2px 1px;
+    font-weight: 300;
+    text-align: center;
+    box-sizing: 3px;
+    background-color: aquamarine;
+}
+body{width:100%;}
