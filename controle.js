@@ -2,6 +2,8 @@ const tabuleiro1 = document.querySelectorAll(".tabuleiro")
 const jogador1 = "X";
 const jogador2 = "O";
 let turno = true;
+var j1 = ['','','','',''];
+var j2 = ['','','','',''];
 
 document.addEventListener("click", (event) => { 
     
@@ -11,6 +13,8 @@ document.addEventListener("click", (event) => {
     }
     
 })
+
+
 
 const possibilidades = [
 
@@ -32,27 +36,82 @@ function jogar(id){
     turnoDe = false;
     if(turno == true){
         turnoDe = jogador1;
+        area.classList.add(turnoDe);
+        document.getElementById(id).disabled = true;
+        for(let i = 0; i <j1.length; i++){
+            if(j1[i] == ''){
+                j1[i] = area;
+                break;
+            }
+        }
+        venceu(turno);
         turno = false;
     } else {
+        
+        
         turnoDe = jogador2;
+        area.classList.add(turnoDe);
+        document.getElementById(id).disabled = true;
+       for(let n = 0; n <j2.length; n++){
+            if(j2[n] == ''){
+                j2[n] = area;
+                break;
+            }
+        }
         turno = true;
     }
     area.textContent = turnoDe;
     
     area.classList.add(turnoDe);
-    document.getElementById(id).disabled = true;
-    venceu(!turnoDe);
+    
+
+    
+
 }
 
-/*function venceu(turno){
-    for(let i = 0; i < possibilidades.length(); i++){
-        if(possibilidades[i] == 0 )
+function venceu(turno){
+    var aux;
+    if(turno == true){
+    for(let i = 0; i < possibilidades.length; i++){
+        aux = 0;
+        for(let k = 0; k < possibilidades[i].length; k++){
+            for(let j = 0; j < j1.length; j++){
+                if(possibilidades[i][k] == j1[j] ){
+                    aux = aux+1;
+            }
+            
+        }
+        
+
+        }
+        if(aux > 2){
+            break;
+            alert("O Vencedor é: Jogador 1");
+        }
     }
-    return true;
+    
+}
+ else {
+    for(let i = 0; i < possibilidades.length; i++){
+        aux = 0;
+        for(let k = 0; k < possibilidades[i].length; k++){
+            for(let j = 0; j < j2.length; j++){
+                if(possibilidades[i][k] == j2[j] ){
+                    aux = aux+1;
+            }
+            
+        }
+        
+
+        }
+        if(aux > 2){
+            break;
+            alert("O Vencedor é: Jogador 2");
+        }
+    }
+    
+}
 }
 
-function fimDeJogo(){
-    alert("FIM DE JOGO");
-}
 
-*/
+
