@@ -70,48 +70,60 @@ function jogar(id){
 }
 
 function venceu(turno){
-    var aux;
+    var aux = 0;
+    var acabou = false;
     if(turno == true){
     for(let i = 0; i < possibilidades.length; i++){
         aux = 0;
-        for(let k = 0; k < possibilidades[i].length; k++){
+        for(let k = 0; k < 3; k++){
             for(let j = 0; j < j1.length; j++){
-                if(possibilidades[i][k] == j1[j] ){
+                
+                if(possibilidades[i][k] === j1[j] ){
+                    console.log(j1[j])
+                    console.log(possibilidades[i][k])
                     aux = aux+1;
-            }
+                    if(aux == 3){
+                        console.log(aux);
+                        //alert("O Vencedor é: Jogador 1");
+                        break;
+                        
+            }   
+        }
+        if(aux == 3){
+            console.log(aux);
             
-        }
-        
-
-        }
-        if(aux > 2){
             break;
-            alert("O Vencedor é: Jogador 1");
         }
-    }
+        }
+        if(aux == 3){
+            console.log(aux);
     
+            break;
+    }   
 }
- else {
+    }
+} else {
     for(let i = 0; i < possibilidades.length; i++){
         aux = 0;
-        for(let k = 0; k < possibilidades[i].length; k++){
+        for(let k = 0; k < 3; k++){
             for(let j = 0; j < j2.length; j++){
                 if(possibilidades[i][k] == j2[j] ){
                     aux = aux+1;
-            }
-            
-        }
-        
+                    if(aux > 2){
+                        console.log(aux);
 
+                        break;
+                        
+                    
+            }
         }
-        if(aux > 2){
-            break;
-            alert("O Vencedor é: Jogador 2");
+        }
         }
     }
-    
 }
+
 }
+
 
 
 
