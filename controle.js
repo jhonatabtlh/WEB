@@ -3,6 +3,8 @@ const jogador1 = "X";
 const jogador2 = "O";
 const reseta = null;
 let turno = true;
+var nomeJogador1 = "Jogador 1";
+var nomeJogador2 = "Jogador 2";
 var j1 = ['','','','',''];
 var j2 = ['','','','',''];
 var empate = true;
@@ -25,6 +27,15 @@ document.addEventListener("click", (event) => {
     
     if(event.target.matches(".reseta")){
         resete();
+        
+    }
+    
+})
+
+document.addEventListener("click", (event) => { 
+    
+    if(event.target.matches(".alterarNomes")){
+        alteraNome();
         
     }
     
@@ -161,8 +172,8 @@ function empatou(empate){
 }
 
 function placar(){
-    document.getElementById("placar").innerHTML = "Placar \n" + "Jogador 1: "+numeroVitoriasJogador1
-    +"         Jogador 2: "+numeroVitoriasJogador2+" Numero de Empates: "+numeroDeEmpates;
+    document.getElementById("placar").innerHTML = nomeJogador1+": "+numeroVitoriasJogador1
+    +"\n"+nomeJogador2+": "+numeroVitoriasJogador2+" Empates: "+numeroDeEmpates;
 }
 
 function resete(){
@@ -203,4 +214,17 @@ function marcarRetaVencedora(a){
         }
     }
         }
+}
+
+function alteraNome(){
+    var input1 = document.querySelector("#nomeJogador1");
+    var input2 = document.querySelector("#nomeJogador2");
+    if(input1.value != ''){
+    nomeJogador1 = input1.value;
+}
+if(input2.value != ''){
+    nomeJogador2 = input2.value;
+   
+}
+placar();
 }
