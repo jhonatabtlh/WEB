@@ -10,6 +10,7 @@ var numeroVitoriasJogador1 = 0;
 var numeroVitoriasJogador2 = 0;
 var numeroDeEmpates = 0;
 var contadorDeJogadasPorTurno = 0;
+var linhaParaMarcar = 0;
 placar();
 document.addEventListener("click", (event) => { 
     
@@ -98,10 +99,12 @@ function venceu(turno){
                 if(possibilidades[i][k] === j1[j] ){
                     aux = aux+1;
                     if(aux == 3){
+                        linhaParaMarcar = i;
                         empate = false;
                         numeroVitoriasJogador1++;
                         placar();
                         desabilitaTudo()
+                        marcarRetaVencedora(i);
                         alert("O Vencedor é: Jogador 1");
                         break;          
             }   
@@ -124,10 +127,12 @@ function venceu(turno){
                 if(possibilidades[i][k] === j2[j] ){
                     aux = aux+1;
                     if(aux == 3){
+                        linhaParaMarcar = i;
                         empate = false;
                         numeroVitoriasJogador2++;
                         placar();
                         desabilitaTudo();
+                        marcarRetaVencedora(linhaParaMarcar);
                         alert("O Vencedor é: Jogador 2");
                         break;
                         
@@ -177,4 +182,19 @@ function desabilitaTudo(){
     for(let i = 0; i < 9; i++){
     document.getElementById(i).disabled = true;
 }
+}
+
+function marcarRetaVencedora(a){
+    var auxiliar =  0;
+    for(let i = 0; i < 9; i++){
+        //console.log(document.getElementById(i).id)
+        auxiliar = document.getElementById(i).id
+        console.log(auxiliar);
+        console.log(possibilidades[a][i])
+        if(auxiliar === possibilidades[a][i]){
+            document.getElementById(auxiliar).style.backgroundColor = "black"
+            break;
+        }
+        
+        }
 }
