@@ -173,28 +173,34 @@ function resete(){
     for(let i = 0; i < 9; i++){
     document.getElementById(i).disabled = false;
     document.getElementById(i).textContent = "ㅤ";
+    var auxiliar = document.getElementById(i).id;
+    document.getElementById(auxiliar).style.backgroundColor = "aquamarine"
     }
 
 
 }
 
 function desabilitaTudo(){
+
     for(let i = 0; i < 9; i++){
     document.getElementById(i).disabled = true;
+    
+        
+        
+    }
 }
-}
+
 
 function marcarRetaVencedora(a){
     var auxiliar =  0;
+
     for(let i = 0; i < 9; i++){
-        //console.log(document.getElementById(i).id)
         auxiliar = document.getElementById(i).id
-        console.log(auxiliar);
-        console.log(possibilidades[a][i])
-        if(auxiliar === possibilidades[a][i]){
-            document.getElementById(auxiliar).style.backgroundColor = "black"
+        for(var k = 0; k < 3; k++){
+        if(auxiliar == possibilidades[a][k]){
+            document.getElementById(auxiliar).style.backgroundColor = "yellow"
             break;
         }
-        
+    }
         }
 }
