@@ -29,6 +29,7 @@
     border-radius: 3px;
     text-align: start;
     font-size: 20px;
+    background-color: aqua;
     border: solid black;
 }
 
@@ -39,13 +40,36 @@
     text-align: center;
 }
 
-.botoes{
+.insereNome{
     margin: 0 auto;
     max-width: 480px;
     border-radius: 3px;
     text-align: start;
     font-size: 20px;
     border: solid white;
+}
+
+.organizaBotao{
+    margin: 0 auto;
+    max-width: 480px;
+    border-radius: 3px;
+    text-align: start;
+    font-size: 20px;
+    border: solid white;
+}
+.novaPartida{
+    font-size: 20px;
+    margin-right: 230px;
+    background-color:greenyellow;
+}
+.novoJogo{
+    font-size: 20px;
+    background-color:greenyellow;
+}
+.alterarNomes{
+    font-size: 15px;
+    background-color: gray;
+
 }
 body{width:100%;}
 

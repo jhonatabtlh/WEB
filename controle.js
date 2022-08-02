@@ -25,7 +25,7 @@ document.addEventListener("click", (event) => {
 
 document.addEventListener("click", (event) => { 
     
-    if(event.target.matches(".reseta")){
+    if(event.target.matches(".novaPartida")){
         resete();
         
     }
@@ -36,6 +36,15 @@ document.addEventListener("click", (event) => {
     
     if(event.target.matches(".alterarNomes")){
         alteraNome();
+        
+    }
+    
+})
+
+document.addEventListener("click", (event) => { 
+    
+    if(event.target.matches(".novoJogo")){
+        location.reload();
         
     }
     
@@ -116,7 +125,7 @@ function venceu(turno){
                         placar();
                         desabilitaTudo()
                         marcarRetaVencedora(i);
-                        alert("O Vencedor é: Jogador 1");
+                        alert("O Vencedor é: "+nomeJogador1);
                         break;          
             }   
         }
@@ -144,7 +153,7 @@ function venceu(turno){
                         placar();
                         desabilitaTudo();
                         marcarRetaVencedora(linhaParaMarcar);
-                        alert("O Vencedor é: Jogador 2");
+                        alert("O Vencedor é: "+nomeJogador2);
                         break;
                         
             }   
@@ -173,7 +182,7 @@ function empatou(empate){
 
 function placar(){
     document.getElementById("placar").innerHTML = nomeJogador1+": "+numeroVitoriasJogador1
-    +"\n"+nomeJogador2+": "+numeroVitoriasJogador2+" Empates: "+numeroDeEmpates;
+    +"<br>"+nomeJogador2+": "+numeroVitoriasJogador2+"<br> Empates: "+numeroDeEmpates;
 }
 
 function resete(){
