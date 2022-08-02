@@ -100,17 +100,17 @@ function jogar(id){
         empatou(empate);
         turno = true;
     }
-    area.textContent = turnoDe;
-    
-
-
-    
+    area.textContent = turnoDe; 
 
 }
 
+
+
+
+
 function venceu(turno){
     var aux = 0;
-    var acabou = false;
+ 
     if(turno == true){
     for(let i = 0; i < possibilidades.length; i++){
         aux = 0;
@@ -170,6 +170,10 @@ function venceu(turno){
 }
 
 }
+
+
+
+
 function empatou(empate){
     if(contadorDeJogadasPorTurno == 9 && empate == true){
     numeroDeEmpates++
@@ -179,6 +183,9 @@ function empatou(empate){
     } 
     
 }
+
+
+
 
 function placar(){
     document.getElementById("placar").innerHTML = nomeJogador1+": "+numeroVitoriasJogador1
@@ -200,15 +207,16 @@ function resete(){
 
 }
 
-function desabilitaTudo(){
 
+
+
+function desabilitaTudo(){
     for(let i = 0; i < 9; i++){
     document.getElementById(i).disabled = true;
-    
-        
-        
     }
 }
+
+
 
 
 function marcarRetaVencedora(a){
@@ -224,6 +232,9 @@ function marcarRetaVencedora(a){
     }
         }
 }
+
+
+
 
 function alteraNome(){
     var input1 = document.querySelector("#nomeJogador1");
