@@ -100,8 +100,8 @@ function venceu(turno){
                         empate = false;
                         numeroVitoriasJogador1++;
                         placar();
+                        desabilitaTudo()
                         alert("O Vencedor é: Jogador 1");
-                     //   resete();
                         break;          
             }   
         }
@@ -126,8 +126,8 @@ function venceu(turno){
                         empate = false;
                         numeroVitoriasJogador2++;
                         placar();
+                        desabilitaTudo();
                         alert("O Vencedor é: Jogador 2");
-                        //resete();
                         break;
                         
             }   
@@ -146,9 +146,9 @@ function venceu(turno){
 }
 function empatou(empate){
     if(contadorDeJogadasPorTurno == 9 && empate == true){
-
+    desabilitaTudo()
     alert("Empatou")
-   // resete();
+   
     } 
     
 }
@@ -158,7 +158,6 @@ function placar(){
 }
 
 function resete(){
-    var a;
     j1 = ['','','','',''];
     j2 = ['','','','',''];
     for(let i = 0; i < 9; i++){
@@ -169,3 +168,8 @@ function resete(){
 
 }
 
+function desabilitaTudo(){
+    for(let i = 0; i < 9; i++){
+    document.getElementById(i).disabled = true;
+}
+}
