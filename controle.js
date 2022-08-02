@@ -8,6 +8,7 @@ var j2 = ['','','','',''];
 var empate = true;
 var numeroVitoriasJogador1 = 0;
 var numeroVitoriasJogador2 = 0;
+var numeroDeEmpates = 0;
 var contadorDeJogadasPorTurno = 0;
 placar();
 document.addEventListener("click", (event) => { 
@@ -75,7 +76,7 @@ function jogar(id){
             }
         }
         venceu(turno);
-        empatou();
+        empatou(empate);
         turno = true;
     }
     area.textContent = turnoDe;
@@ -146,20 +147,24 @@ function venceu(turno){
 }
 function empatou(empate){
     if(contadorDeJogadasPorTurno == 9 && empate == true){
-    desabilitaTudo()
-    alert("Empatou")
-   
+    numeroDeEmpates++
+    placar();
+    alert("Empatou");
+    desabilitaTudo();
     } 
     
 }
 
 function placar(){
-    document.getElementById("placar").innerHTML = "Placar \n" + "Jogador 1: "+numeroVitoriasJogador1+"\n Jogador 2: "+numeroVitoriasJogador2;
+    document.getElementById("placar").innerHTML = "Placar \n" + "Jogador 1: "+numeroVitoriasJogador1
+    +"         Jogador 2: "+numeroVitoriasJogador2+" Numero de Empates: "+numeroDeEmpates;
 }
 
 function resete(){
     j1 = ['','','','',''];
     j2 = ['','','','',''];
+    empate = true; 
+    contadorDeJogadasPorTurno = 0;
     for(let i = 0; i < 9; i++){
     document.getElementById(i).disabled = false;
     document.getElementById(i).textContent = "ㅤ";
